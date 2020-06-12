@@ -2,6 +2,8 @@
 
 namespace App\models\Edificio;
 
+use App\models\GoogleMaps\GoogleMaps;
+use App\models\Sistemas\Sistemas;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -36,5 +38,16 @@ class edificio extends Model
         return $this->belongsToMany(User::class);
     }
 
+    public function sistema()
+    {
+        return $this->belongsToMany(Sistemas::class);
+    }
+
+    // relacionamento com a Tabela Google Maps
+
+    public function mapa()
+    {
+        return $this->hasOne(GoogleMaps::class, 'edificio_id', 'id');
+    }
     public $timestamps = false;
 }

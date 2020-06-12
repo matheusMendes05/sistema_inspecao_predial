@@ -11,8 +11,10 @@
     <!-- <title>{{ config('app.name', 'Laravel') }}</title> -->
     <title>Ficha de Inspeção Predial</title>
 
+    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
+
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -26,15 +28,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!-- Google API  -->
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3WWENSVNnI9uD3-EAJeWg636OlX84syc&libraries=places" async defer></script> -->
 
-
+    <!-- Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3WWENSVNnI9uD3-EAJeWg636OlX84syc&libraries=places" async defer></script>
 
 
 </head>
@@ -158,11 +159,20 @@
 
     <!-- API google Maps -->
     <!-- Google API  -->
-    <!-- <script src="{{ url(mix('Web/js/getLocation.js'))}}"></script> -->
+    <script src="{{ url(mix('Web/js/getLocation.js'))}}"></script>
 
     <!-- API google Maps -->
     <!-- Google API  -->
-    <!-- <script src="{{ url(mix('Web/js/setLocation.js'))}}"></script> -->
+    <script src="{{ url(mix('Web/js/setLocation.js'))}}"></script>
+
+
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3WWENSVNnI9uD3-EAJeWg636OlX84syc&callback=initMap"></script> -->
+
+
+    <!-- Google API  -->
+    <script src="{{ url(mix('Web/js/getLocation.js'))}}"></script>
+
+    <script src="{{ url(mix('Web/js/estruturas.js'))}}"></script>
 
 </body>
 

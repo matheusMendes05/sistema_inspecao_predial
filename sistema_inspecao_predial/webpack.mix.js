@@ -26,4 +26,10 @@ mix.styles([
     .scripts([
         'resources/views/Web/js/estruturas.js'
     ], 'public/Web/js/estruturas.js')
+    .scripts([
+        'resources/views/Web/js/formulario.js'
+    ], 'public/Web/js/formulario.js')
+    .scripts([
+        'resources/views/Web/js/webservice.js'
+    ], 'public/Web/js/webservice.js')
     .version();

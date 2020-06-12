@@ -63,6 +63,16 @@
                     <td>{{$edificio->responsavel_edificio}}</td>
                     <td>{{$edificio->tipologia}}</td>
                     <td>{{$edificio->data}}</td>
+                    <!-- <td>
+                        <form action="{{route('edificio.destroy', ['edificio_id' => $edificio->id])}}" class="d-inline" method="post">
+                            @CSRF
+                            @method('delete')
+
+                            <button type="submit" class="btn text-danger">Excluir Registro <i class="fas fa-trash"></i></button>
+
+                        </form>
+                    </td> -->
+
                 </tr>
                 @endforeach
             </tbody>

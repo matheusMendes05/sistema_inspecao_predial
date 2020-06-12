@@ -41,6 +41,22 @@ Route::group(['middleware' => 'auth'], function () {
     // excluir edificio
     Route::delete('/edificio/excluir/{edificio_id}', 'Edificio\EdificioController@destroy')->name('edificio.destroy');
 
-    // Coletar Dados de sistemas de edificacao
-    // Route::get('/edifiio/{edificio_id}/coletar-dados-sistemas/novo', '')
+    // Check list
+    Route::get('/edificio/check-list/{edificio_id}', 'Sistemas\SistemaController@create')->name('sistema.create');
+    Route::post('/edificio/check-list/{edificio_id}/novo', 'Sistemas\SistemaController@store')->name('sistema.store');
+    // historico de inspecoes
+    Route::get('/edificio/{edificio_id}/historico/inspecao', 'Sistemas\SistemaController@index')->name('sistema.index');
+    // deletando dado coletado 
+    Route::delete('/edificio/inspecao/{elemento_id}/excluir', 'Sistemas\SistemaController@destroy')->name('sistema.destroy');
+
+
+    // documentacao fotografica
+    Route::get('/edificio/{edificio_id}/inspecao/elemento/{elemento_id}/documento_fotografico', 'Sistemas\DocumentacaoFotografica@create')->name('documentacao.create');
+    Route::post('/edificio/{edificio_id}/inspecionar/elemento/{elemento_id}/documento_fotografico/novo', 'Sistemas\DocumentacaoFotografica@store')->name('documentacao.store');
+    // listar todos os documentos fotograficos
+    Route::get('/edificio/{edificio_id}/inspecao/documento_fotografico/historico', 'Sistemas\DocumentacaoFotografica@index')->name('documentacao.index');
+    // deletar documento 
+    Route::delete('/excluir/documento_fotografico/{documento_id}', 'Sistemas\DocumentacaoFotografica@destroy')->name('documentacao.destroy');
+
+    // google Maps API
 });

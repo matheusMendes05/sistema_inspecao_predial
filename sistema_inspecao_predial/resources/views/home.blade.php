@@ -9,7 +9,7 @@
           <hr class="my-2">
           <p>Bem Vindo: <span class="text-success font-weight-bolder">{{Auth::user()->email}}</span></p>
           <p class="lead">
-              <a class="btn btn-outline-success btn-lg" href="" role="button">Cadastrar Edificio</a>
+              <a class="btn btn-outline-success btn-lg" href="{{route('edificio.create')}}" role="button">Cadastrar Edificio</a>
           </p>
       </div>
 

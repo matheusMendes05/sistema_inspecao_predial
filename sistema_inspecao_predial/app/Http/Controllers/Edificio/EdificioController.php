@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Edificio;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\GoogleMaps\GoogleMapsController;
 use App\models\Edificio\edificio;
 use App\models\Edificio\usuario_edificio;
+use App\models\GoogleMaps\GoogleMaps;
+use App\models\Sistemas\Sistemas;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -70,8 +73,13 @@ class EdificioController extends Controller
             $edificio->construtora = $request->txtConstrutora;
             $edificio->administrador = $request->txtAdministrador;
             // $edificio->responsavel_acompanhamento_obra = $request->responsavelObra;
-
             $edificio->save();
+
+            // salvando localizacao do edificio
+            if (isset($request->localizacao) && $request->localizacao == "localizacao") {
+                GoogleMapsController::store($request, $edificio->id);
+            }
+
             // retorna obj usuario autenticao
             $usuario = User::find(Auth::user()->id);
             // alimentando a tabela pivot
@@ -93,8 +101,15 @@ class EdificioController extends Controller
     {
         //
         $edificio = edificio::where('id', $edificio_id)->first();
+        $mapa = GoogleMaps::where('edificio_id', $edificio_id)->first();
+        $sistema = Sistemas::where('edificio_id', $edificio_id)->get();
+
+        $contador = count($sistema);
+
         return view('Web._edificio.verificarEdificio', [
-            'edificio' => $edificio
+            'edificio' => $edificio,
+            'mapa' => $mapa,
+            'contador' => $contador
         ]);
     }
 
